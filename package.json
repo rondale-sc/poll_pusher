@@ -1,0 +1,19 @@
+{
+  "name": "poll_pusher",
+  "version": "0.0.0",
+  "description": "Service to update answers in a sister app named barber poll",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rondale-sc/poll_pusher.git"
+  },
+  "author": "Jonathan Jackson, Brandon Farmer",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/rondale-sc/poll_pusher/issues"
+  }
+}
