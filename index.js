@@ -3,10 +3,13 @@ var config = require('./config');
 var io     = require('socket.io').listen(config.socket_io.port);
 var redis  = require('redis');
 
-var client = redis.createClient(config.redis.port, config.redis.host);
 
-if(process.env['NODE_ENV'] === 'production') {
-  client.auth(config.redis.password);
+if(process.env.REDISTOGO_URL) {
+  var rtg    = require('url').parse(process.env.REDISTOGO_URL)
+  var client = redis.createClient(rtg.port, rtg.hostname);
+  client.auth(rtg.auth.split(":")[1]);
+} else {
+  var client = redis.createClient();
 }
 
 var publish = _.throttle(function(survey_id, answers) {
