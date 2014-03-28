@@ -1,13 +1,10 @@
 var _      = require('underscore');
 var config = require('./config');
 var io     = require('socket.io').listen(config.socket_io.port);
-var redis  = require('redis');
 
 
 if(process.env.REDISTOGO_URL) {
-  var rtg    = require('url').parse(process.env.REDISTOGO_URL)
-  var client = redis.createClient(rtg.port, rtg.hostname);
-  client.auth(rtg.auth);
+  var client = require('redis-url').connect(process.env.REDISTOGO_URL);
 } else {
   var client = redis.createClient();
 }
