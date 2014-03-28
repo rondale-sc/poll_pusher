@@ -15,5 +15,9 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/rondale-sc/poll_pusher/issues"
+  },
+  "dependencies": {
+    "socket.io": "~0.9.16",
+    "redis": "~0.10.1"
   }
 }
