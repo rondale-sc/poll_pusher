@@ -1,7 +1,7 @@
 var _      = require('underscore');
-var io     = require('socket.io').listen(8080);
-var redis  = require('redis');
 var config = require('./config');
+var io     = require('socket.io').listen(config.socket_io.port);
+var redis  = require('redis');
 
 var client = redis.createClient(config.redis.port, config.redis.host);
 
