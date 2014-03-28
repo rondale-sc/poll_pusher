@@ -14,7 +14,8 @@ module.exports = {
     },
     redis: {
       host: process.env['REDISTOGO_URL'],
-      port: process.env['REDISTOGO_PORT']
+      port: process.env['REDISTOGO_PORT'],
+      password: process.env['REDISTOGO_PASSWORD']
     }
   }
 }[process.env['NODE_ENV'] || 'development'];

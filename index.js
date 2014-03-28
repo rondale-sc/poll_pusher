@@ -5,6 +5,10 @@ var redis  = require('redis');
 
 var client = redis.createClient(config.redis.port, config.redis.host);
 
+if(process.env['NODE_ENV'] === 'production') {
+  client.auth(config.redis.password);
+}
+
 var publish = _.throttle(function(survey_id, answers) {
   io.sockets.in(survey_id).emit('answers', answers);
 }, 100);
