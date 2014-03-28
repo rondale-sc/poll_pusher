@@ -1,5 +1,6 @@
 var _      = require('underscore');
 var config = require('./config');
+var redis  = require('redis');
 var io     = require('socket.io').listen(config.socket_io.port);
 
 

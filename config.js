@@ -6,7 +6,7 @@ module.exports = {
   },
   production: {
     socket_io: {
-      port: 80
+      port: process.env.PORT
     }
   }
 }[process.env['NODE_ENV'] || 'development'];
